@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "MX0SB08aeaEtUo8MddMmC8bTsNqSlA7jDE5sOa77ab0NWJsZNAP5pj5/NqDOzosswMmvemE7ry7xtHpFeE5QeA==",
+  "success": true,
+  "projectFilePath": "D:\\Programming\\Templates\\LMS\\LMS\\src\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Salman\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\Salman\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Salman\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,7 @@
+D:\Programming\Templates\LMS\LMS\src\Web\obj\Debug\net7.0\Web.csproj.AssemblyReference.cache
+D:\Programming\Templates\LMS\LMS\src\Web\obj\Debug\net7.0\Web.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Templates\LMS\LMS\src\Web\obj\Debug\net7.0\Web.AssemblyInfoInputs.cache
+D:\Programming\Templates\LMS\LMS\src\Web\obj\Debug\net7.0\Web.AssemblyInfo.cs
+D:\Programming\Templates\LMS\LMS\src\Web\obj\Debug\net7.0\Web.csproj.CoreCompileInputs.cache
+D:\Programming\Templates\LMS\LMS\src\Web\obj\Debug\net7.0\Web.MvcApplicationPartsAssemblyInfo.cs
+D:\Programming\Templates\LMS\LMS\src\Web\obj\Debug\net7.0\Web.MvcApplicationPartsAssemblyInfo.cache

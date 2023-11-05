@@ -1,0 +1,12 @@
+D:\Programming\Templates\LMS\LMS\src\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\Programming\Templates\LMS\LMS\src\Domain\bin\Debug\net7.0\Domain.dll
+D:\Programming\Templates\LMS\LMS\src\Domain\bin\Debug\net7.0\Domain.pdb
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\Domain.dll
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\Domain.pdb
+D:\Programming\Templates\LMS\LMS\src\Domain\obj\Debug\net7.0\ref\Domain.dll
