@@ -1,4 +1,6 @@
-﻿using Application.Features.CommonLookups.Commands;
+﻿using Application.Common.Security;
+using Application.Constants;
+using Application.Features.CommonLookups.Commands;
 using Application.Features.CommonLookups.Quries;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -15,6 +17,7 @@ public class CommonLookupsController : BaseApiController
         _httpContext = httpContext;
     }
     [HttpGet]
+    [Authorize(Policy = Permissions.ApplicationUsers.View)]
     public async Task<IResult> Get()
     {
         // test purpose

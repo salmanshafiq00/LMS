@@ -31,6 +31,8 @@ internal sealed class JwtProvider : IJwtProvider
 
         var userRoles = await _userManager.GetRolesAsync(user!);
 
+        var roles = userRoles.Select(ur => new Claim("role", ur )).ToList();
+
         var roleClaims = new List<Claim>();
         foreach (var role in userRoles)
         {
@@ -47,6 +49,7 @@ internal sealed class JwtProvider : IJwtProvider
             new Claim("uid", user.Id!),
             new Claim("ip", GetIpAddress())
         }
+        .Union(roles)
         .Union(roleClaims);
 
         var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.SecretKey));

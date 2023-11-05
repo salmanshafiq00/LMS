@@ -1,12 +1,12 @@
 ﻿using Application.Common.Interfaces;
 using Application.Common.Security;
-using Application.Constants;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.CommonLookups.Quries;
 
-[Authorize(Policy = Permissions.ApplicationUsers.View)]
+//[Authorize(Policy = Permissions.ApplicationUsers.View)]
+//[Authorize]
 public record GetCommonLookupsQuery : IRequest<IList<CommonLookupResponse>>;
 
 internal sealed class GetCommonLookupsQueryHandler : IRequestHandler<GetCommonLookupsQuery, IList<CommonLookupResponse>>
@@ -24,6 +24,6 @@ internal sealed class GetCommonLookupsQueryHandler : IRequestHandler<GetCommonLo
         return await _context.CommonLookups
             .OrderByDescending(x => x.Created)
             .ProjectTo<CommonLookupResponse>(_mapper.ConfigurationProvider)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
     }
 }
