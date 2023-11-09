@@ -44,32 +44,15 @@ public static class DependencyInjection
 
         services.AddTransient<IDateTime, DateTimeService>();
 
-
         services.AddIdentityCore<ApplicationUser>()
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
         services.ConfigureOptions<JwtOptionsSetup>();
+        services.ConfigureOptions<JwtBearerOptionsSetup>();
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                //.AddJwtBearer();
-        .AddJwtBearer(options =>
-        {
-            options.IncludeErrorDetails = true;
-            options.TokenValidationParameters = new()
-            {
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = configuration["JwtOptions:Issuer"],
-                ValidAudience = configuration["JwtOptions:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(configuration["JwtOptions:SecretKey"]))
-            };
-        });
-
-        //services.ConfigureOptions<JwtBearerOptionsSetup>();
+                .AddJwtBearer();     
 
         services.AddAuthorizationBuilder();
 
