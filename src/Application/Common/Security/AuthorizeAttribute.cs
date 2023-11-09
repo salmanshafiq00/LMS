@@ -3,7 +3,7 @@
 /// <summary>
 /// Specifies the class this attribute is applied to requires authorization.
 /// </summary>
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
 public class AuthorizeAttribute : Attribute
 {
     /// <summary>

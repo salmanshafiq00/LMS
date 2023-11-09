@@ -1,6 +1,4 @@
-﻿using Application.Common.Security;
-using Application.Constants;
-using Application.Features.CommonLookups.Commands;
+﻿using Application.Features.CommonLookups.Commands;
 using Application.Features.CommonLookups.Quries;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -10,20 +8,16 @@ namespace Web.Controllers.Common;
 [ApiController]
 public class CommonLookupsController : BaseApiController
 {
-    private readonly IHttpContextAccessor _httpContext;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public CommonLookupsController(IHttpContextAccessor httpContext)
+    public CommonLookupsController(IHttpContextAccessor httpContextAccessor)
     {
-        _httpContext = httpContext;
+        _httpContextAccessor = httpContextAccessor;
     }
     [HttpGet]
-    [Authorize(Policy = Permissions.ApplicationUsers.View)]
     public async Task<IResult> Get()
     {
-        // test purpose
-        string? username = _httpContext.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
-        string? userId = _httpContext.HttpContext?.User?.FindFirstValue("uid");
-        var user = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         var token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
         return Results.Ok(await Mediator.Send(new GetCommonLookupsQuery()));

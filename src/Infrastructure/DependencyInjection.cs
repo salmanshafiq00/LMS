@@ -13,7 +13,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -42,12 +44,32 @@ public static class DependencyInjection
 
         services.AddTransient<IDateTime, DateTimeService>();
 
+
         services.AddIdentityCore<ApplicationUser>()
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
+        services.ConfigureOptions<JwtOptionsSetup>();
+
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer();
+                //.AddJwtBearer();
+        .AddJwtBearer(options =>
+        {
+            options.IncludeErrorDetails = true;
+            options.TokenValidationParameters = new()
+            {
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = configuration["JwtOptions:Issuer"],
+                ValidAudience = configuration["JwtOptions:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(
+                    Encoding.UTF8.GetBytes(configuration["JwtOptions:SecretKey"]))
+            };
+        });
+
+        //services.ConfigureOptions<JwtBearerOptionsSetup>();
 
         services.AddAuthorizationBuilder();
 
@@ -56,8 +78,6 @@ public static class DependencyInjection
         services.AddTransient<IAuthAccountService, AuthAccountService>();
         services.AddTransient<IJwtProvider, JwtProvider>();
 
-        services.ConfigureOptions<JwtOptionsSetup>();
-        services.ConfigureOptions<JwtBearerOptionsSetup>();
 
         // For dynamically create policy if not exist
         services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();

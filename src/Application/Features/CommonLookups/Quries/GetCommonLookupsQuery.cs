@@ -1,12 +1,12 @@
 ﻿using Application.Common.Interfaces;
 using Application.Common.Security;
+using Application.Constants;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.CommonLookups.Quries;
 
-//[Authorize(Policy = Permissions.ApplicationUsers.View)]
-//[Authorize]
+[Authorize(Policy = Permissions.ApplicationUsers.View)]
 public record GetCommonLookupsQuery : IRequest<IList<CommonLookupResponse>>;
 
 internal sealed class GetCommonLookupsQueryHandler : IRequestHandler<GetCommonLookupsQuery, IList<CommonLookupResponse>>

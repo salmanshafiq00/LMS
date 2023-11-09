@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Application.Features.Identity.Users.Queries;
 using AutoMapper;
-using Azure.Core;
 using System.Net.Mail;
 using Ardalis.GuardClauses;
 
@@ -31,7 +30,7 @@ public class IdentityService : IIdentityService
     }
     public async Task<bool> AuthorizeAsync(string userId, string policyName)
     {
-       var user =  _userManager.Users.SingleOrDefault(u => u.Id == userId);
+       var user = await _userManager.Users.SingleOrDefaultAsync(u => u.Id == userId);
         if (user == null)
         {
             return false;
